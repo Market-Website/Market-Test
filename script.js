@@ -1,46 +1,39 @@
 // Vinyl collection organized by genre
 let vinyls = [
     // Rock
-    { id: 1, title: "IV", artist: "Led Zeppelin", year: 1971, price: 48.99, image: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=400&h=400&fit=crop", audio: null },
-    { id: 2, title: "Rumours", artist: "Fleetwood Mac", year: 1977, price: 41.99, image: "https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?w=400&h=400&fit=crop", audio: null },
-    { id: 3, title: "A Night at the Opera", artist: "Queen", year: 1975, price: 52.99, image: "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop", audio: null },
-    { id: 4, title: "Hotel California", artist: "The Eagles", year: 1976, price: 44.99, image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=400&fit=crop", audio: null },
-    { id: 5, title: "Ziggy Stardust", artist: "David Bowie", year: 1972, price: 49.99, image: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop", audio: null },
-    { id: 6, title: "Sticky Fingers", artist: "The Rolling Stones", year: 1971, price: 46.99, image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=400&h=400&fit=crop", audio: null },
-    { id: 7, title: "Abbey Road", artist: "The Beatles", year: 1969, price: 55.99, image: "https://images.unsplash.com/photo-1608433319511-dfe8ea4cbd3c?w=400&h=400&fit=crop", audio: null },
-    { id: 8, title: "Appetite for Destruction", artist: "Guns N' Roses", year: 1987, price: 42.99, image: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?w=400&h=400&fit=crop", audio: null },
-    { id: 9, title: "Slippery When Wet", artist: "Bon Jovi", year: 1986, price: 38.99, image: "https://images.unsplash.com/photo-1615887023516-9e0854d1c7e1?w=400&h=400&fit=crop", audio: null },
-    { id: 10, title: "The Dark Side of the Moon", artist: "Pink Floyd", year: 1973, price: 58.99, image: "FILES/COVERS/DARK SIDE OF THE MOON C.png", audio: "FILES/AUDIO/DARK SIDE OF THE MOON A.wav" },
-    { id: 11, title: "Pendulum", artist: "Creedence Clearwater Revival", year: 1970, price: 39.99, image: "https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?w=400&h=400&fit=crop", audio: null },
+    { id: 1, title: "Smell of a friend", artist: "The Lodge", year: 1988, price: 8.99, image: "FILES/COVERS/smell_of_a_friend_EnF9F__please_credit[palette.fm].png", audio: "FILES/AUDIO/smell_of_a_friend.wav" },
+    { id: 2, title: "White Winds", artist: "Andreas Vollenweider", year: 1984, price: 12.99, image: "FILES/COVERS/white_winds_vS4gh__please_credit[palette.fm].png", audio: "FILES/AUDIO/white_winds.wav" },
+    { id: 3, title: "Demon in disguise", artist: "David Bromberg", year: 1972, price: 15.99, image: "FILES/COVERS/img_lMbRA__please_credit[palette.fm].png", audio: "FILES/AUDIO/demon_in_disguise.wav" },
+    { id: 4, title: "Paths of colour", artist: "Nina Ryser", year: 2020, price: 18.99, image: "FILES/COVERS/paths_of_colour_27LgU__please_credit[palette.fm].png", audio: "FILES/AUDIO/paths_of_colour.wav" },
+    { id: 6, title: "Into the fire", artist: "Bryan Adams", year: 1987, price: 11.99, image: "FILES/COVERS/into_the_fire_BqVHP__please_credit[palette.fm].png", audio: "FILES/AUDIO/into_the_fire.wav" },
+    { id: 7, title: "On the Edge", artist: "Sea Level", year: 1978, price: 14.99, image: "FILES/COVERS/on_the_edge_tmRKH__please_credit[palette.fm].png", audio: "FILES/AUDIO/on_the_edge.wav" },
+    { id: 8, title: "3-D", artist: "Rick Zivic", year: 1980, price: 9.99, image: "FILES/COVERS/3-D_jcSWM__please_credit[palette.fm].png", audio: "FILES/AUDIO/3-D.wav" },
+    { id: 9, title: "Beat Street", artist: "Unknown", year: 0, price: 6.99, image: "FILES/COVERS/beat street.png", audio: "FILES/AUDIO/beat_street.wav" },
+    { id: 10, title: "Moon dog matine", artist: "Unknown", year: 0, price: 13.99, image: "FILES/COVERS/moon_dog_matine_ZwlNJ__please_credit[palette.fm].png", audio: "FILES/AUDIO/moon_dog_matine.wav" },
+    { id: 11, title: "One on One", artist: "Cheap Trick", year: 1982, price: 10.99, image: "FILES/COVERS/one_on_one_tQlYe__please_credit[palette.fm].png", audio: "FILES/AUDIO/one_on_one.wav" },
     
     // Jazz
-    { id: 12, title: "Kind of Blue", artist: "Miles Davis", year: 1959, price: 62.99, image: "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop", audio: null },
-    { id: 13, title: "A Love Supreme", artist: "John Coltrane", year: 1965, price: 59.99, image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=400&fit=crop", audio: null },
-    { id: 14, title: "Lady in Satin", artist: "Billie Holiday", year: 1958, price: 54.99, image: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop", audio: null },
-    { id: 15, title: "What a Wonderful World", artist: "Louis Armstrong", year: 1968, price: 48.99, image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=400&h=400&fit=crop", audio: null },
-    { id: 16, title: "Time Out", artist: "Dave Brubeck", year: 1959, price: 56.99, image: "https://images.unsplash.com/photo-1608433319511-dfe8ea4cbd3c?w=400&h=400&fit=crop", audio: null },
-    { id: 17, title: "Mingus Ah Um", artist: "Charles Mingus", year: 1959, price: 58.99, image: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?w=400&h=400&fit=crop", audio: null },
-    { id: 18, title: "Chet Baker Sings", artist: "Chet Baker", year: 1954, price: 64.99, image: "https://images.unsplash.com/photo-1615887023516-9e0854d1c7e1?w=400&h=400&fit=crop", audio: null },
-    { id: 19, title: "Head Hunters", artist: "Herbie Hancock", year: 1973, price: 52.99, image: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=400&h=400&fit=crop", audio: null },
+    { id: 12, title: "Impressions of the Middle East", artist: "Unknown", year: 0, price: 16.99, image: "FILES/COVERS/impressions_of_the_middle_east_I2DcE__please_credit[palette.fm].png", audio: "FILES/AUDIO/impressions_of_the_middle_east.wav" },
+    { id: 13, title: "Gypsy queen", artist: "Priscilla Coolidge", year: 1970, price: 19.99, image: "FILES/COVERS/gypsy_queen_6f5mB__please_credit[palette.fm].png", audio: "FILES/AUDIO/gypsy_queen.wav" },
+    { id: 14, title: "The tears of a clown", artist: "The Miracles", year: 1967, price: 14.49, image: "FILES/COVERS/the_tears_of_a_clown_NyEqN__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_tears_of_a_clown.wav" },
+    { id: 15, title: "The electrifying guitar of Walter", artist: "Unknown", year: 0, price: 11.49, image: "FILES/COVERS/the_electrifying_guitar_of_walter_QxKH9__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_electrifying_guitar_of_walter.wav" },
+    { id: 16, title: "Planet Waves", artist: "Unknown", year: 0, price: 17.99, image: "FILES/COVERS/planet_waves_i9pis__please_credit[palette.fm].png", audio: "FILES/AUDIO/planet_waves.wav" },
+    { id: 17, title: "Disco gold", artist: "Unknown", year: 0, price: 22.99, image: "FILES/COVERS/DARK SIDE OF THE MOON C.png", audio: "FILES/AUDIO/disco_gold.wav" },
+    { id: 18, title: "How men are", artist: "Unknown", year: 0, price: 13.49, image: "FILES/COVERS/how_men_are_ZJxCG__please_credit[palette.fm].png", audio: "FILES/AUDIO/how_men_are.wav" },
+    { id: 19, title: "Sambatá", artist: "Unknown", year: 0, price: 15.49, image: "FILES/COVERS/sambata_Eg4dK__please_credit[palette.fm].png", audio: "FILES/AUDIO/sambata.wav" },
     
     // Pop, Disco & New Wave
-    { id: 20, title: "Arrival", artist: "ABBA", year: 1976, price: 36.99, image: "https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?w=400&h=400&fit=crop", audio: null },
-    { id: 21, title: "Super Trouper", artist: "ABBA", year: 1980, price: 34.99, image: "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop", audio: null },
-    { id: 22, title: "Saturday Night Fever", artist: "Bee Gees", year: 1977, price: 42.99, image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=400&fit=crop", audio: null },
-    { id: 23, title: "Bad Girls", artist: "Donna Summer", year: 1979, price: 38.99, image: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop", audio: null },
-    { id: 24, title: "C'est Chic", artist: "Chic", year: 1978, price: 39.99, image: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=400&h=400&fit=crop", audio: null },
-    { id: 25, title: "Thriller", artist: "Michael Jackson", year: 1982, price: 49.99, image: "https://images.unsplash.com/photo-1608433319511-dfe8ea4cbd3c?w=400&h=400&fit=crop", audio: null },
-    { id: 26, title: "Purple Rain", artist: "Prince", year: 1984, price: 46.99, image: "https://images.unsplash.com/photo-1619983081593-e2ba5b543168?w=400&h=400&fit=crop", audio: null },
-    { id: 27, title: "All 'N All", artist: "Earth, Wind & Fire", year: 1977, price: 41.99, image: "https://images.unsplash.com/photo-1615887023516-9e0854d1c7e1?w=400&h=400&fit=crop", audio: null },
-    { id: 28, title: "Like a Virgin", artist: "Madonna", year: 1984, price: 37.99, image: "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?w=400&h=400&fit=crop", audio: null },
-    { id: 29, title: "Speaking in Tongues", artist: "Talking Heads", year: 1983, price: 43.99, image: "https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?w=400&h=400&fit=crop", audio: null },
-    { id: 30, title: "Toto IV", artist: "Toto", year: 1982, price: 40.99, image: "https://images.unsplash.com/photo-1619983081563-430f63602796?w=400&h=400&fit=crop", audio: null },
-    { id: 31, title: "She's So Unusual", artist: "Cyndi Lauper", year: 1983, price: 35.99, image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&h=400&fit=crop", audio: null },
-    { id: 32, title: "The Queen Is Dead", artist: "The Smiths", year: 1986, price: 44.99, image: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop", audio: null }
+    { id: 20, title: "All mean come", artist: "Unknown", year: 0, price: 7.99, image: "FILES/COVERS/all_mean_come_iM9Cy__please_credit[palette.fm].png", audio: "FILES/AUDIO/all_mean_come.wav" },
+    { id: 21, title: "Don't crush the dwarf, and me the pliers", artist: "Unknown", year: 0, price: 5.99, image: "FILES/COVERS/dont_crush_the_dwarf_and_me_the_pliers_62oQ1__please_credit[palette.fm].png", audio: "FILES/AUDIO/dont_crush_the_dwarf_and_me_the_pliers.wav" },
+    { id: 22, title: "Double Time", artist: "Leon Redbone", year: 0, price: 10.49, image: "FILES/COVERS/double_time_8hNDe__please_credit[palette.fm].png", audio: "FILES/AUDIO/double_time.wav" },
+    { id: 25, title: "Saturday night band come on dance", artist: "Unknown", year: 0, price: 12.49, image: "FILES/COVERS/saturday_night_band_come_on_dance_HhRkD__please_credit[palette.fm].png", audio: "FILES/AUDIO/saturday_night_band_come_on_dance.wav" },
+    { id: 26, title: "No life love and pain", artist: "Unknown", year: 0, price: 16.49, image: "FILES/COVERS/no_life_love_and_pain_ks10r__please_credit[palette.fm].png", audio: "FILES/AUDIO/no_life_love_and_pain.wav" },
+    { id: 27, title: "Angel cry dark moon", artist: "Unknown", year: 0, price: 20.99, image: "FILES/COVERS/angel_cry_dark_moon_cMHvz__please_credit[palette.fm].png", audio: "FILES/AUDIO/angel_cry_dark_moon.wav" }
 ];
 
 let currentAudio = null;
 let currentPlayingId = null;
+let cart = [];
 
 function renderVinyls() {
     const grid = document.getElementById('vinylGrid');
@@ -51,52 +44,54 @@ function renderVinyls() {
     const cardWidth = 250;
     const spacing = 80;
     
-    // Calculate grid layout
-    const cols = Math.floor(containerWidth / (cardWidth + spacing));
-    const rows = Math.ceil(vinyls.length / cols);
+    // Organize albums into 3 roughly equal columns (genre bins)
+    const cols = 3;
+    const itemsPerCol = Math.ceil(vinyls.length / cols);
+    
+    const genreList = [
+        vinyls.slice(0, itemsPerCol),      // Column 1: First 8 albums
+        vinyls.slice(itemsPerCol, itemsPerCol * 2),  // Column 2: Next 8 albums
+        vinyls.slice(itemsPerCol * 2)      // Column 3: Remaining albums
+    ];
     
     const cellWidth = containerWidth / cols;
-    const cellHeight = containerHeight / rows;
+    
+    // Find max items in any column for height calculation
+    const maxItems = Math.max(...genreList.map(g => g.length));
+    const cellHeight = containerHeight / maxItems;
 
-    vinyls.forEach((vinyl, index) => {
-        const card = document.createElement('div');
-        card.className = 'vinyl-card';
+    genreList.forEach((genreVinyls, colIndex) => {
+        genreVinyls.forEach((vinyl, rowIndex) => {
+            const card = document.createElement('div');
+            card.className = 'vinyl-card';
+            
+            // Position in genre column
+            const cellCenterX = colIndex * cellWidth + (cellWidth / 2) - (cardWidth / 2);
+            const cellCenterY = rowIndex * cellHeight + (cellHeight / 2) - (cardWidth / 2);
+            
+            // Add random offset within cell (±40% of cell size)
+            const offsetX = (Math.random() - 0.5) * cellWidth * 0.4;
+            const offsetY = (Math.random() - 0.5) * cellHeight * 0.4;
+            
+            const randomX = cellCenterX + offsetX;
+            const randomY = cellCenterY + offsetY;
+            
+            // Z-index based on vertical position (lower Y = higher z-index, like a vinyl crate viewed from above)
+            const zIndex = Math.floor(randomY);
+            
+            card.style.left = randomX + 'px';
+            card.style.top = randomY + 'px';
+            card.style.zIndex = zIndex;
         
-        // Calculate grid cell
-        const col = index % cols;
-        const row = Math.floor(index / cols);
-        
-        // Center position in cell with random offset
-        const cellCenterX = col * cellWidth + (cellWidth / 2) - (cardWidth / 2);
-        const cellCenterY = row * cellHeight + (cellHeight / 2) - (cardWidth / 2);
-        
-        // Add random offset within cell (±60% of cell size)
-        const offsetX = (Math.random() - 0.5) * cellWidth * 0.6;
-        const offsetY = (Math.random() - 0.5) * cellHeight * 0.6;
-        
-        const randomX = cellCenterX + offsetX;
-        const randomY = cellCenterY + offsetY;
-        
-        // Random rotation between -10 and 10 degrees
-        const rotation = Math.random() * 20 - 10;
-        
-        // Random z-index for stacking effect
-        const zIndex = Math.floor(Math.random() * 5) + 1;
-        
-        card.style.left = randomX + 'px';
-        card.style.top = randomY + 'px';
-        card.style.transform = `rotate(${rotation}deg)`;
-        card.style.zIndex = zIndex;
+        card.draggable = true;
+        card.dataset.vinylId = vinyl.id;
         
         card.innerHTML = `
             <div class="vinyl-image-container">
                 <img src="${vinyl.image}" alt="${vinyl.title}" class="vinyl-image" id="image-${vinyl.id}">
             </div>
             <div class="vinyl-info">
-                <div class="vinyl-title">${vinyl.title}</div>
-                <div class="vinyl-artist">${vinyl.artist}</div>
                 <div class="vinyl-details">
-                    <span class="vinyl-year">${vinyl.year}</span>
                     <span class="vinyl-price">$${vinyl.price.toFixed(2)}</span>
                 </div>
                 <div class="audio-controls">
@@ -104,10 +99,24 @@ function renderVinyls() {
                         ${vinyl.audio ? '▶ Play' : '🎵 No Audio'}
                     </button>
                 </div>
-                <button class="buy-btn" onclick="buyVinyl(${vinyl.id}); event.stopPropagation();">Add to Cart</button>
             </div>
         `;
+        
+        // Store original z-index
+        card.dataset.originalZ = zIndex;
+        
         grid.appendChild(card);
+        
+        // Add drag event listeners to each card
+        card.addEventListener('dragstart', function(e) {
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', this.dataset.vinylId);
+        });
+        
+        card.addEventListener('dragend', function(e) {
+            this.classList.remove('dragging');
+        });
         
         // Check if card is in bottom area and flip popup if needed
         card.addEventListener('mouseenter', function() {
@@ -120,13 +129,14 @@ function renderVinyls() {
                 popup.style.top = 'auto';
                 popup.style.bottom = '100%';
                 popup.style.marginTop = '0';
-                popup.style.marginBottom = '8px';
+                popup.style.marginBottom = '0';
             } else {
                 popup.style.top = '100%';
                 popup.style.bottom = 'auto';
-                popup.style.marginTop = '8px';
+                popup.style.marginTop = '0';
                 popup.style.marginBottom = '0';
             }
+        });
         });
     });
 }
@@ -174,9 +184,164 @@ function togglePlay(id) {
 function buyVinyl(id) {
     const vinyl = vinyls.find(v => v.id === id);
     if (vinyl) {
-        alert(`Added "${vinyl.title}" by ${vinyl.artist} to cart!\nPrice: $${vinyl.price.toFixed(2)}`);
+        // Check if already in cart
+        if (!cart.find(item => item.id === id)) {
+            cart.push(vinyl);
+            updateCartUI();
+            toggleCart(); // Open cart
+        }
     }
 }
+
+function updateCartUI() {
+    const cartCount = document.getElementById('cartCount');
+    const cartItems = document.getElementById('cartItems');
+    const cartFooter = document.getElementById('cartFooter');
+    const cartTotal = document.getElementById('cartTotal');
+    
+    cartCount.textContent = cart.length;
+    
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+        cartFooter.style.display = 'none';
+    } else {
+        cartItems.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="cart-item-image-container" onclick="togglePlay(${item.id})" style="cursor: pointer;">
+                    <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                    <div class="cart-play-overlay"></div>
+                </div>
+                <div class="cart-item-details">
+                    <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                </div>
+                <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Remove</button>
+            </div>
+        `).join('');
+        
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+        cartFooter.style.display = 'block';
+    }
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCartUI();
+    
+    // Re-render vinyls to restore the removed album
+    renderVinyls();
+}
+
+function toggleCart() {
+    const modal = document.getElementById('cartModal');
+    modal.classList.toggle('active');
+}
+
+function checkout() {
+    if (cart.length === 0) return;
+    
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    alert(`Thank you for your purchase!\n\nTotal: $${total.toFixed(2)}\n\nItems:\n${cart.map(item => `- ${item.title} ($${item.price.toFixed(2)})`).join('\n')}`);
+    
+    // Clear cart
+    cart = [];
+    updateCartUI();
+    toggleCart();
+}
+
+// Global hover detection to handle z-index stacking issues
+let currentHoveredCard = null;
+
+document.addEventListener('mousemove', (e) => {
+    const cards = Array.from(document.querySelectorAll('.vinyl-card'));
+    let hoveredCard = null;
+    
+    // Check if mouse is over any interactive element within the current hovered card
+    const target = e.target;
+    if (currentHoveredCard && currentHoveredCard.contains(target)) {
+        // Mouse is still within the currently hovered card (including buttons, info popup, etc.)
+        // Keep current hover state
+        return;
+    }
+    
+    // Also check if mouse is over the vinyl-info popup (which may extend beyond card bounds)
+    if (target.closest('.vinyl-info') || target.closest('.play-btn') || target.closest('.buy-btn')) {
+        // Mouse is over popup or buttons, keep current hover state
+        return;
+    }
+    
+    // Find all cards under the cursor
+    const cardsUnderCursor = cards.filter(card => {
+        const rect = card.getBoundingClientRect();
+        return e.clientX >= rect.left && e.clientX <= rect.right &&
+               e.clientY >= rect.top && e.clientY <= rect.bottom;
+    });
+    
+    // If multiple cards overlap, pick the one with highest original z-index (naturally on top)
+    if (cardsUnderCursor.length > 0) {
+        hoveredCard = cardsUnderCursor.reduce((highest, card) => {
+            const cardZ = parseInt(card.dataset.originalZ) || 0;
+            const highestZ = parseInt(highest.dataset.originalZ) || 0;
+            return cardZ > highestZ ? card : highest;
+        });
+    }
+    
+    // Reset all cards except the new hovered one
+    cards.forEach(card => {
+        if (card !== hoveredCard) {
+            card.classList.remove('active-hover');
+            card.style.zIndex = card.dataset.originalZ;
+        }
+    });
+    
+    // Activate hovered card
+    if (hoveredCard) {
+        hoveredCard.classList.add('active-hover');
+        hoveredCard.style.zIndex = '9999';
+        currentHoveredCard = hoveredCard;
+    } else {
+        currentHoveredCard = null;
+    }
+});
+
+// Setup checkout bin drop functionality
+const checkoutBin = document.getElementById('checkoutBin');
+
+// Handle drag over checkout bin
+checkoutBin.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    checkoutBin.classList.add('drag-over');
+});
+
+// Handle drag leave checkout bin
+checkoutBin.addEventListener('dragleave', () => {
+    checkoutBin.classList.remove('drag-over');
+});
+
+// Handle drop on checkout bin
+checkoutBin.addEventListener('drop', (e) => {
+    e.preventDefault();
+    checkoutBin.classList.remove('drag-over');
+    
+    const vinylId = parseInt(e.dataTransfer.getData('text/plain'));
+    const vinyl = vinyls.find(v => v.id === vinylId);
+    
+    if (vinyl && !cart.find(item => item.id === vinylId)) {
+        cart.push(vinyl);
+        updateCartUI();
+        
+        // Remove the card from the page
+        const cardToRemove = document.querySelector(`[data-vinyl-id="${vinylId}"]`);
+        if (cardToRemove) {
+            cardToRemove.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            cardToRemove.style.opacity = '0';
+            cardToRemove.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                cardToRemove.remove();
+            }, 300);
+        }
+    }
+});
 
 // Initial render
 renderVinyls();
