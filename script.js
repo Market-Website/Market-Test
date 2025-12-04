@@ -1,87 +1,85 @@
-// Vinyl collection organized by genre
+// Vinyl collection organized by genre with pre-determined loudness values
 let vinyls = [
     // Rock
-    { id: 1, title: "Smell of a friend", artist: "The Lodge", year: 1988, price: 8.99, image: "FILES/COVERS/smell_of_a_friend_EnF9F__please_credit[palette.fm].png", audio: "FILES/AUDIO/smell_of_a_friend.wav" },
-    { id: 2, title: "White Winds", artist: "Andreas Vollenweider", year: 1984, price: 12.99, image: "FILES/COVERS/white_winds_vS4gh__please_credit[palette.fm].png", audio: "FILES/AUDIO/white_winds.wav" },
-    { id: 3, title: "Demon in disguise", artist: "David Bromberg", year: 1972, price: 15.99, image: "FILES/COVERS/img_lMbRA__please_credit[palette.fm].png", audio: "FILES/AUDIO/demon_in_disguise.wav" },
-    { id: 4, title: "Paths of colour", artist: "Nina Ryser", year: 2020, price: 18.99, image: "FILES/COVERS/paths_of_colour_27LgU__please_credit[palette.fm].png", audio: "FILES/AUDIO/paths_of_colour.wav" },
-    { id: 6, title: "Into the fire", artist: "Bryan Adams", year: 1987, price: 11.99, image: "FILES/COVERS/into_the_fire_BqVHP__please_credit[palette.fm].png", audio: "FILES/AUDIO/into_the_fire.wav" },
-    { id: 7, title: "On the Edge", artist: "Sea Level", year: 1978, price: 14.99, image: "FILES/COVERS/on_the_edge_tmRKH__please_credit[palette.fm].png", audio: "FILES/AUDIO/on_the_edge.wav" },
-    { id: 8, title: "3-D", artist: "Rick Zivic", year: 1980, price: 9.99, image: "FILES/COVERS/3-D_jcSWM__please_credit[palette.fm].png", audio: "FILES/AUDIO/3-D.wav" },
-    { id: 9, title: "Beat Street", artist: "Unknown", year: 0, price: 6.99, image: "FILES/COVERS/beat street.png", audio: "FILES/AUDIO/beat_street.wav" },
-    { id: 10, title: "Moon dog matine", artist: "Unknown", year: 0, price: 13.99, image: "FILES/COVERS/moon_dog_matine_ZwlNJ__please_credit[palette.fm].png", audio: "FILES/AUDIO/moon_dog_matine.wav" },
-    { id: 11, title: "One on One", artist: "Cheap Trick", year: 1982, price: 10.99, image: "FILES/COVERS/one_on_one_tQlYe__please_credit[palette.fm].png", audio: "FILES/AUDIO/one_on_one.wav" },
+    { id: 1, title: "Smell of a friend", artist: "The Lodge", year: 1988, price: 8.99, image: "FILES/COVERS/smell_of_a_friend_EnF9F__please_credit[palette.fm].png", audio: "FILES/AUDIO/smell_of_a_friend.wav", loudness: 85, actualCover: "FILES/ACTUAL COVERS/SMELL OF A FRIEND.JPG" },
+    { id: 2, title: "White Winds", artist: "Andreas Vollenweider", year: 1984, price: 12.99, image: "FILES/COVERS/white_winds_vS4gh__please_credit[palette.fm].png", audio: "FILES/AUDIO/white_winds.wav", loudness: 45, actualCover: "FILES/ACTUAL COVERS/WHITE WINDS.JPG" },
+    { id: 3, title: "Demon in disguise", artist: "David Bromberg", year: 1972, price: 15.99, image: "FILES/COVERS/demons in disguise.png", audio: "FILES/AUDIO/demon_in_disguise.wav", loudness: 78, actualCover: "FILES/ACTUAL COVERS/DEMON IS DISGUISE.JPG" },
+    { id: 4, title: "Paths of colour", artist: "Nina Ryser", year: 2020, price: 18.99, image: "FILES/COVERS/paths_of_colour_27LgU__please_credit[palette.fm].png", audio: "FILES/AUDIO/paths_of_colour.wav", loudness: 62, actualCover: "FILES/ACTUAL COVERS/PATHS OF COLOR.JPG" },
+    { id: 6, title: "Into the fire", artist: "Bryan Adams", year: 1987, price: 11.99, image: "FILES/COVERS/into_the_fire_BqVHP__please_credit[palette.fm].png", audio: "FILES/AUDIO/into_the_fire.wav", loudness: 92, actualCover: "FILES/ACTUAL COVERS/INTO THE FIRE.JPG" },
+    { id: 7, title: "On the Edge", artist: "Sea Level", year: 1978, price: 14.99, image: "FILES/COVERS/on_the_edge_tmRKH__please_credit[palette.fm].png", audio: "FILES/AUDIO/on_the_edge.wav", loudness: 70 },
+    { id: 8, title: "3-D", artist: "Rick Zivic", year: 1980, price: 9.99, image: "FILES/COVERS/3-D_jcSWM__please_credit[palette.fm].png", audio: "FILES/AUDIO/3-D.wav", loudness: 55, actualCover: "FILES/ACTUAL COVERS/3D.JPG" },
+    { id: 9, title: "Beat Street", artist: "Unknown", year: 0, price: 6.99, image: "FILES/COVERS/beat street.png", audio: "FILES/AUDIO/beat_street.wav", loudness: 88 },
+    { id: 10, title: "Moon dog matine", artist: "Unknown", year: 0, price: 13.99, image: "FILES/COVERS/moon_dog_matine_ZwlNJ__please_credit[palette.fm].png", audio: "FILES/AUDIO/moon_dog_matine.wav", loudness: 40, actualCover: "FILES/ACTUAL COVERS/MOONDOG MATINEE.JPG" },
+    { id: 11, title: "One on One", artist: "Cheap Trick", year: 1982, price: 10.99, image: "FILES/COVERS/one_on_one_tQlYe__please_credit[palette.fm].png", audio: "FILES/AUDIO/one_on_one.wav", loudness: 82, actualCover: "FILES/ACTUAL COVERS/ONE ON ONE.JPG" },
+    { id: 28, title: "Raised on Radio", artist: "Journey", year: 1986, price: 14.99, image: "FILES/COVERS/raised_on_radio_new_horizon.png", audio: "FILES/AUDIO/raised_on_radio_new_horizon.wav", loudness: 75, actualCover: "FILES/ACTUAL COVERS/RAISED ON RADIO.JPG" },
     
     // Jazz
-    { id: 12, title: "Impressions of the Middle East", artist: "Unknown", year: 0, price: 16.99, image: "FILES/COVERS/impressions_of_the_middle_east_I2DcE__please_credit[palette.fm].png", audio: "FILES/AUDIO/impressions_of_the_middle_east.wav" },
-    { id: 13, title: "Gypsy queen", artist: "Priscilla Coolidge", year: 1970, price: 19.99, image: "FILES/COVERS/gypsy_queen_6f5mB__please_credit[palette.fm].png", audio: "FILES/AUDIO/gypsy_queen.wav" },
-    { id: 14, title: "The tears of a clown", artist: "The Miracles", year: 1967, price: 14.49, image: "FILES/COVERS/the_tears_of_a_clown_NyEqN__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_tears_of_a_clown.wav" },
-    { id: 15, title: "The electrifying guitar of Walter", artist: "Unknown", year: 0, price: 11.49, image: "FILES/COVERS/the_electrifying_guitar_of_walter_QxKH9__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_electrifying_guitar_of_walter.wav" },
-    { id: 16, title: "Planet Waves", artist: "Unknown", year: 0, price: 17.99, image: "FILES/COVERS/planet_waves_i9pis__please_credit[palette.fm].png", audio: "FILES/AUDIO/planet_waves.wav" },
-    { id: 17, title: "Disco gold", artist: "Unknown", year: 0, price: 22.99, image: "FILES/COVERS/DARK SIDE OF THE MOON C.png", audio: "FILES/AUDIO/disco_gold.wav" },
-    { id: 18, title: "How men are", artist: "Unknown", year: 0, price: 13.49, image: "FILES/COVERS/how_men_are_ZJxCG__please_credit[palette.fm].png", audio: "FILES/AUDIO/how_men_are.wav" },
-    { id: 19, title: "Sambatá", artist: "Unknown", year: 0, price: 15.49, image: "FILES/COVERS/sambata_Eg4dK__please_credit[palette.fm].png", audio: "FILES/AUDIO/sambata.wav" },
+    { id: 12, title: "Impressions of the Middle East", artist: "Unknown", year: 0, price: 16.99, image: "FILES/COVERS/impressions_of_the_middle_east_I2DcE__please_credit[palette.fm].png", audio: "FILES/AUDIO/impressions_of_the_middle_east.wav", loudness: 35, actualCover: "FILES/ACTUAL COVERS/IMPRESSIONS OF THE MIDDLE EAST.JPG" },
+    { id: 13, title: "Gypsy queen", artist: "Priscilla Coolidge", year: 1970, price: 19.99, image: "FILES/COVERS/gypsy_queen_6f5mB__please_credit[palette.fm].png", audio: "FILES/AUDIO/gypsy_queen.wav", loudness: 58, actualCover: "FILES/ACTUAL COVERS/GYPSY QUEEN.JPG" },
+    { id: 14, title: "The tears of a clown", artist: "The Miracles", year: 1967, price: 14.49, image: "FILES/COVERS/the_tears_of_a_clown_NyEqN__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_tears_of_a_clown.wav", loudness: 75, actualCover: "FILES/ACTUAL COVERS/TEAR OF A CLOWN.JPG" },
+    { id: 15, title: "The electrifying guitar of walter", artist: "Unknown", year: 0, price: 11.49, image: "FILES/COVERS/the_electrifying_guitar_of_walter_QxKH9__please_credit[palette.fm].png", audio: "FILES/AUDIO/the_electrifying_guitar_of_walter.wav", loudness: 68, actualCover: "FILES/ACTUAL COVERS/THE ELECTRIFYING GUITAR OF WALKTER RAIM.JPG" },
+    { id: 16, title: "Planet Waves", artist: "Unknown", year: 0, price: 17.99, image: "FILES/COVERS/planet_waves_i9pis__please_credit[palette.fm].png", audio: "FILES/AUDIO/planet_waves.wav", loudness: 52, actualCover: "FILES/ACTUAL COVERS/PLANET WAVES.JPG" },
+    { id: 17, title: "Disco gold", artist: "Unknown", year: 0, price: 22.99, image: "FILES/COVERS/DARK SIDE OF THE MOON C.png", audio: "FILES/AUDIO/disco_gold.wav", loudness: 95 },
+    { id: 18, title: "How men are", artist: "Unknown", year: 0, price: 13.49, image: "FILES/COVERS/how_men_are_ZJxCG__please_credit[palette.fm].png", audio: "FILES/AUDIO/how_men_are.wav", loudness: 48, actualCover: "FILES/ACTUAL COVERS/HOW MEN ARE.JPG" },
+    { id: 19, title: "Sambatá", artist: "Unknown", year: 0, price: 15.49, image: "FILES/COVERS/sambata_Eg4dK__please_credit[palette.fm].png", audio: "FILES/AUDIO/sambata.wav", loudness: 72, actualCover: "FILES/ACTUAL COVERS/SAMBATA.JPG" },
     
     // Pop, Disco & New Wave
-    { id: 20, title: "All mean come", artist: "Unknown", year: 0, price: 7.99, image: "FILES/COVERS/all_mean_come_iM9Cy__please_credit[palette.fm].png", audio: "FILES/AUDIO/all_mean_come.wav" },
-    { id: 21, title: "Don't crush the dwarf, and me the pliers", artist: "Unknown", year: 0, price: 5.99, image: "FILES/COVERS/dont_crush_the_dwarf_and_me_the_pliers_62oQ1__please_credit[palette.fm].png", audio: "FILES/AUDIO/dont_crush_the_dwarf_and_me_the_pliers.wav" },
-    { id: 22, title: "Double Time", artist: "Leon Redbone", year: 0, price: 10.49, image: "FILES/COVERS/double_time_8hNDe__please_credit[palette.fm].png", audio: "FILES/AUDIO/double_time.wav" },
-    { id: 25, title: "Saturday night band come on dance", artist: "Unknown", year: 0, price: 12.49, image: "FILES/COVERS/saturday_night_band_come_on_dance_HhRkD__please_credit[palette.fm].png", audio: "FILES/AUDIO/saturday_night_band_come_on_dance.wav" },
-    { id: 26, title: "No life love and pain", artist: "Unknown", year: 0, price: 16.49, image: "FILES/COVERS/no_life_love_and_pain_ks10r__please_credit[palette.fm].png", audio: "FILES/AUDIO/no_life_love_and_pain.wav" },
-    { id: 27, title: "Angel cry dark moon", artist: "Unknown", year: 0, price: 20.99, image: "FILES/COVERS/angel_cry_dark_moon_cMHvz__please_credit[palette.fm].png", audio: "FILES/AUDIO/angel_cry_dark_moon.wav" }
+    { id: 20, title: "All mean come", artist: "Unknown", year: 0, price: 7.99, image: "FILES/COVERS/all_mean_come_iM9Cy__please_credit[palette.fm].png", audio: "FILES/AUDIO/all_mean_come.wav", loudness: 65 },
+    { id: 21, title: "Don't crush the dwarf, and me the pliers", artist: "Unknown", year: 0, price: 5.99, image: "FILES/COVERS/dont_crush_the_dwarf_and_me_the_pliers_62oQ1__please_credit[palette.fm].png", audio: "FILES/AUDIO/dont_crush_the_dwarf_and_me_the_pliers.wav", loudness: 42, actualCover: "FILES/ACTUAL COVERS/DONT CRUSH THAT DWARF, HAND ME THE PLIERS.JPG" },
+    { id: 22, title: "Double Time", artist: "Leon Redbone", year: 0, price: 10.49, image: "FILES/COVERS/double_time_8hNDe__please_credit[palette.fm].png", audio: "FILES/AUDIO/double_time.wav", loudness: 50, actualCover: "FILES/ACTUAL COVERS/DOUBLE TIME.JPG" },
+    { id: 25, title: "Saturday night band come on dance", artist: "Unknown", year: 0, price: 12.49, image: "FILES/COVERS/saturday_night_band_come_on_dance_HhRkD__please_credit[palette.fm].png", audio: "FILES/AUDIO/saturday_night_band_come_on_dance.wav", loudness: 90, actualCover: "FILES/ACTUAL COVERS/COME ON DANCE, DANCE.JPG" },
+    { id: 26, title: "No life love and pain", artist: "Unknown", year: 0, price: 16.49, image: "FILES/COVERS/no_life_love_and_pain_ks10r__please_credit[palette.fm].png", audio: "FILES/AUDIO/no_life_love_and_pain.wav", loudness: 60, actualCover: "FILES/ACTUAL COVERS/LIFE LOVE AND PAIN.JPG" },
+    { id: 27, title: "Angel cry dark moon", artist: "Unknown", year: 0, price: 20.99, image: "FILES/COVERS/angel_cry_dark_moon_cMHvz__please_credit[palette.fm].png", audio: "FILES/AUDIO/angel_cry_dark_moon.wav", loudness: 38 }
 ];
 
 let currentAudio = null;
 let currentPlayingId = null;
 let cart = [];
+let currentSort = null;
 
 function renderVinyls() {
     const grid = document.getElementById('vinylGrid');
     grid.innerHTML = '';
     
+    // Filter out vinyls that are already in the cart
+    const availableVinyls = vinyls.filter(vinyl => !cart.find(item => item.id === vinyl.id));
+    
     const containerWidth = grid.offsetWidth || window.innerWidth - 40;
-    const containerHeight = grid.offsetHeight || window.innerHeight - 40;
-    const cardWidth = 250;
-    const spacing = 80;
+    const cardWidth = 280;
+    const cardHeight = 280;
     
-    // Organize albums into 3 roughly equal columns (genre bins)
-    const cols = 3;
-    const itemsPerCol = Math.ceil(vinyls.length / cols);
+    // Calculate how many columns can fit
+    const cols = Math.floor(containerWidth / (cardWidth + 30));
+    const rows = Math.ceil(availableVinyls.length / cols);
     
-    const genreList = [
-        vinyls.slice(0, itemsPerCol),      // Column 1: First 8 albums
-        vinyls.slice(itemsPerCol, itemsPerCol * 2),  // Column 2: Next 8 albums
-        vinyls.slice(itemsPerCol * 2)      // Column 3: Remaining albums
-    ];
+    // Calculate spacing to center the grid
+    const totalGridWidth = cols * cardWidth + (cols - 1) * 30;
+    const startX = (containerWidth - totalGridWidth) / 2;
+    const startY = 40;
     
-    const cellWidth = containerWidth / cols;
+    const spacing = 30;
     
-    // Find max items in any column for height calculation
-    const maxItems = Math.max(...genreList.map(g => g.length));
-    const cellHeight = containerHeight / maxItems;
+    // Set grid height based on number of rows
+    const totalGridHeight = rows * (cardHeight + spacing) + 100;
+    grid.style.height = totalGridHeight + 'px';
 
-    genreList.forEach((genreVinyls, colIndex) => {
-        genreVinyls.forEach((vinyl, rowIndex) => {
-            const card = document.createElement('div');
-            card.className = 'vinyl-card';
-            
-            // Position in genre column
-            const cellCenterX = colIndex * cellWidth + (cellWidth / 2) - (cardWidth / 2);
-            const cellCenterY = rowIndex * cellHeight + (cellHeight / 2) - (cardWidth / 2);
-            
-            // Add random offset within cell (±40% of cell size)
-            const offsetX = (Math.random() - 0.5) * cellWidth * 0.4;
-            const offsetY = (Math.random() - 0.5) * cellHeight * 0.4;
-            
-            const randomX = cellCenterX + offsetX;
-            const randomY = cellCenterY + offsetY;
-            
-            // Z-index based on vertical position (lower Y = higher z-index, like a vinyl crate viewed from above)
-            const zIndex = Math.floor(randomY);
-            
-            card.style.left = randomX + 'px';
-            card.style.top = randomY + 'px';
-            card.style.zIndex = zIndex;
+    availableVinyls.forEach((vinyl, index) => {
+        const col = index % cols;
+        const row = Math.floor(index / cols);
+        
+        const card = document.createElement('div');
+        card.className = 'vinyl-card';
+        
+        // Calculate grid position
+        const finalX = startX + col * (cardWidth + spacing);
+        const finalY = startY + row * (cardHeight + spacing);
+        
+        // Z-index based on row position
+        const zIndex = 100 - row;
+        
+        card.style.left = finalX + 'px';
+        card.style.top = finalY + 'px';
+        card.style.zIndex = zIndex;
         
         card.draggable = true;
         card.dataset.vinylId = vinyl.id;
@@ -136,7 +134,6 @@ function renderVinyls() {
                 popup.style.marginTop = '0';
                 popup.style.marginBottom = '0';
             }
-        });
         });
     });
 }
@@ -240,13 +237,24 @@ function toggleCart() {
 function checkout() {
     if (cart.length === 0) return;
     
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    alert(`Thank you for your purchase!\n\nTotal: $${total.toFixed(2)}\n\nItems:\n${cart.map(item => `- ${item.title} ($${item.price.toFixed(2)})`).join('\n')}`);
+    // Prompt for checkout code
+    const code = prompt('Enter CODE to complete purchase:');
+    
+    // Check if user cancelled or entered empty code
+    if (code === null || code.trim() === '') {
+        alert('Checkout cancelled. Please enter CODE to complete your purchase.');
+        return;
+    }
+    
+    // Prepare purchase data for receipt page
+    const itemsData = encodeURIComponent(JSON.stringify(cart));
     
     // Clear cart
     cart = [];
     updateCartUI();
-    toggleCart();
+    
+    // Redirect to receipt page with purchase data
+    window.location.href = `receipt.html?code=${encodeURIComponent(code)}&items=${itemsData}`;
 }
 
 // Global hover detection to handle z-index stacking issues
@@ -342,6 +350,106 @@ checkoutBin.addEventListener('drop', (e) => {
         }
     }
 });
+
+// Function to get dominant color from image
+function getDominantColor(imageSrc, callback) {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = imageSrc;
+    
+    img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        
+        let r = 0, g = 0, b = 0;
+        const pixelCount = data.length / 4;
+        
+        for (let i = 0; i < data.length; i += 4) {
+            r += data[i];
+            g += data[i + 1];
+            b += data[i + 2];
+        }
+        
+        r = Math.floor(r / pixelCount);
+        g = Math.floor(g / pixelCount);
+        b = Math.floor(b / pixelCount);
+        
+        // Convert to HSL for better sorting
+        const hsl = rgbToHsl(r, g, b);
+        callback(hsl);
+    };
+    
+    img.onerror = function() {
+        callback([0, 0, 0]); // Default if image fails to load
+    };
+}
+
+// Convert RGB to HSL
+function rgbToHsl(r, g, b) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+    
+    if (max === min) {
+        h = s = 0;
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        
+        switch (max) {
+            case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+            case g: h = ((b - r) / d + 2) / 6; break;
+            case b: h = ((r - g) / d + 4) / 6; break;
+        }
+    }
+    
+    return [h * 360, s * 100, l * 100];
+}
+
+// Sort by color
+function sortByColor() {
+    const buttons = document.querySelectorAll('.sort-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    currentSort = 'color';
+    
+    let processed = 0;
+    vinyls.forEach((vinyl, index) => {
+        getDominantColor(vinyl.image, (hsl) => {
+            vinyl.colorHue = hsl[0];
+            processed++;
+            
+            if (processed === vinyls.length) {
+                vinyls.sort((a, b) => a.colorHue - b.colorHue);
+                renderVinyls();
+            }
+        });
+    });
+}
+
+// Sort by loudness (using pre-determined values)
+function sortByLoudness() {
+    const buttons = document.querySelectorAll('.sort-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    currentSort = 'loudness';
+    
+    // Sort by pre-determined loudness values (highest to lowest)
+    vinyls.sort((a, b) => b.loudness - a.loudness);
+    renderVinyls();
+}
 
 // Initial render
 renderVinyls();

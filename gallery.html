@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Vinyl Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: 
+                linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px),
+                #f5f1eb;
+            background-size: 40px 40px;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 40px);
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+
+        .vinyl-grid {
+            position: relative;
+            min-height: 100%;
+            width: 100%;
+        }
+
+        .vinyl-card {
+            position: absolute;
+            background: #fff;
+            border-radius: 2px;
+            overflow: visible;
+            box-shadow: 
+                0 2px 8px rgba(0,0,0,0.1),
+                0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: grab;
+            width: 280px;
+            z-index: 1;
+            pointer-events: none;
+            border: 1px solid #e8e4df;
+        }
+        
+        .vinyl-card.active-hover {
+            pointer-events: auto;
+        }
+
+        .vinyl-card.active-hover {
+            box-shadow: 
+                0 8px 24px rgba(0,0,0,0.15),
+                0 16px 48px rgba(0,0,0,0.12);
+            z-index: 9999 !important;
+        }
+        
+        .vinyl-card .play-btn,
+        .vinyl-card .buy-btn {
+            pointer-events: auto;
+        }
+
+        .vinyl-image-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #fff;
+            cursor: grab;
+            border-bottom: 1px solid #e8e4df;
+        }
+
+        .vinyl-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .vinyl-info {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 16px;
+            border-radius: 2px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            min-width: 280px;
+            max-width: 280px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 1000;
+            border: 1px solid #e8e4df;
+            margin-top: 8px;
+        }
+
+        .vinyl-info:hover {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .vinyl-card:hover .vinyl-info {
+            opacity: 1;
+            pointer-events: auto;
+            transition-delay: 0s;
+        }
+
+        .vinyl-info {
+            transition: opacity 0.2s ease 0.1s;
+        }
+
+        .vinyl-card:not(:hover) .vinyl-info {
+            transition-delay: 0.2s;
+        }
+
+        .vinyl-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 4px;
+            letter-spacing: 0.02em;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .vinyl-artist {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .vinyl-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e8e4df;
+        }
+
+        .vinyl-year {
+            color: #999;
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        .vinyl-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .audio-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 0px;
+        }
+
+        .play-btn {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #2c2c2c;
+            border-radius: 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+            color: #2c2c2c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .play-btn:hover {
+            background: #2c2c2c;
+            color: white;
+        }
+
+        .play-btn.playing {
+            background: #2c2c2c;
+            color: white;
+            border-color: #2c2c2c;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 10px;
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .buy-btn:hover {
+            background: #1a1a1a;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-content {
+            background: #fff;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid #e8e4df;
+        }
+
+        .cart-header {
+            padding: 24px;
+            border-bottom: 2px solid #2c2c2c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f5f1eb;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.75rem;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+            color: #2c2c2c;
+            letter-spacing: 0.02em;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .close-cart:hover {
+            color: #2c2c2c;
+        }
+
+        .cart-items {
+            padding: 24px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: #fff;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8e4df;
+            align-items: center;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid #e8e4df;
+            display: block;
+        }
+
+        .cart-play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px;
+            height: 28px;
+            background: rgba(44, 44, 44, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .cart-play-overlay::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 8px solid rgba(255, 255, 255, 0.95);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            margin-left: 2px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-family: 'Arial', sans-serif;
+            color: #2c2c2c;
+        }
+
+        .cart-item-artist {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-family: 'Arial', sans-serif;
+            color: #2c2c2c;
+        }
+
+        .cart-item-remove {
+            background: white;
+            border: 1px solid #2c2c2c;
+            padding: 8px 16px;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .cart-item-remove:hover {
+            background: #2c2c2c;
+            color: white;
+        }
+
+        .cart-footer {
+            padding: 24px;
+            border-top: 2px solid #2c2c2c;
+            background: #f5f1eb;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Arial', sans-serif;
+            color: #2c2c2c;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checkout-btn:hover {
+            background: #1a1a1a;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 24px;
+            color: #999;
+            font-family: 'Arial', sans-serif;
+            font-style: italic;
+        }
+
+        .cart-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c2c2c;
+            color: #fff;
+            border: 2px solid #2c2c2c;
+            padding: 12px 33.5px;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.2s ease;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .cart-button:hover {
+            background: #fff;
+            color: #2c2c2c;
+        }
+
+        .cart-count {
+            margin-left: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .sort-buttons {
+            position: fixed;
+            top: 76px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .sort-btn {
+            background: #fff;
+            color: #2c2c2c;
+            border: 2px solid #2c2c2c;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 1px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .sort-btn:hover {
+            background: #2c2c2c;
+            color: #fff;
+        }
+
+        .sort-btn.active {
+            background: #2c2c2c;
+            color: #fff;
+        }
+
+        .checkout-bin {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background: #2c2c2c;
+            border: 3px solid #2c2c2c;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .checkout-bin.drag-over {
+            background: #f5f1eb;
+            color: #2c2c2c;
+            border-color: #2c2c2c;
+            transform: scale(1.05);
+        }
+
+        .checkout-bin-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .vinyl-card.dragging {
+            opacity: 0.6;
+            cursor: grabbing;
+        }
+
+        .site-title {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #2c2c2c;
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .site-title:hover {
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="index.html" class="site-title">UNTITLED REIMAGINED</a>
+    
+    <div style="position: fixed; top: 20px; right: 20px; display: flex; gap: 8px; z-index: 1000;">
+        <a href="index.html" style="background: #2c2c2c; color: #fff; border: 2px solid #2c2c2c; padding: 12px 33.5px; border-radius: 0; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; letter-spacing: 1px; text-align: center; font-family: 'Arial', sans-serif; text-transform: uppercase; text-decoration: none; display: inline-block;" onmouseover="this.style.background='#fff'; this.style.color='#2c2c2c';" onmouseout="this.style.background='#2c2c2c'; this.style.color='#fff';">Home</a>
+        <button class="cart-button" onclick="toggleCart()">
+            Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+
+    <div class="sort-buttons">
+        <button class="sort-btn" onclick="sortByColor()">Color</button>
+        <button class="sort-btn" onclick="sortByLoudness()">Loudness</button>
+    </div>
+
+    <div class="checkout-bin" id="checkoutBin">
+        <div class="checkout-bin-icon">↓</div>
+        <div>DROP</div>
+        <div>TO BUY</div>
+    </div>
+
+    <div class="container">
+        <div class="vinyl-grid" id="vinylGrid">
+            <!-- Vinyl cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart" onclick="toggleCart()">×</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">Your cart is empty</div>
+            </div>
+            <div class="cart-footer" id="cartFooter" style="display: none;">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
